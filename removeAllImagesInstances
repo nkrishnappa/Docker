@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "Please wait while removing all the docker images "
+echo -en "\n\n==============================================\n\n"
+docker rmi -f $(docker images -a -q)
+docker rmi  $(docker images -a -q)
+echo -en "\n\n==============================================\n\n"
+docker rm -f  $(docker ps -a -q)
+echo -en "\n\n==============================================\n\n"
+docker system prune --volumes
+echo -en "\n\n==============================================\n\n"
+
